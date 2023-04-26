@@ -185,3 +185,12 @@
         background: rgb(192, 219, 174) ;
     }
 }
+.volverCompras{
+    width: 80px;
+    margin-left: 2rem;
+
+    &:hover{
+        scale: 1.1;
+        transition: 1s;
+    }
+}

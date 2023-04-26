@@ -167,9 +167,44 @@ function actualizarPrecioTotal() {
     precioTotal.textContent  = `$${precioTotalCarrito.toFixed(2)}`;
 }
 
+/* carrito.addEventListener('click', (event) => {
+    if (event.target.classList.contains('eliminar-producto')) {
+    const index = event.target.dataset.index;
+    carritoProductos.splice(index, 1);
+    guardarProductosEnLocalStorage();
+    cantidadProductos--;
+    actualizarCarrito();
+    actualizarPrecioTotal();
+    }
+}); 
+const botonComprar = document.querySelector("#confirmarCompra");
+botonComprar.addEventListener("click", () => {
+    if (parseFloat(precioTotal.textContent.slice(1)) === 0) {
+        Swal.fire({
+            icon: 'error',
+            title: "Verificar!",
+            text: 'Tu Carrito esta vacio!',
+            timer: 3000,
+            })
+    } else {
+    Swal.fire({
+        icon: "success",
+        title: "Gracias por su compra",
+        showConfirmButton: false,
+        timer: 3000,
+    });
+    carritoProductos = [];
+    cantidadProductos = 0;
+    actualizarCarrito();
+    actualizarPrecioTotal();
+    localStorage.removeItem("carritoProductos");
+    localStorage.removeItem("cantidadProductos");
+    }
+}); */
+
 //consumir esos datos en forma json.
 
-fetch("./data/datos.json")
+/* fetch("./data/datos.json")
 .then((resultado) => resultado.json())
 .then((data)=>{
     console.log(data);
@@ -188,3 +223,4 @@ fetchApi();
 
 
 
+ */

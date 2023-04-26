@@ -2048,4 +2048,13 @@ footer .footer__nav p {
   background: rgb(192, 219, 174);
 }
 
+.volverCompras {
+  width: 80px;
+  margin-left: 2rem;
+}
+.volverCompras:hover {
+  scale: 1.1;
+  transition: 1s;
+}
+
 /*# sourceMappingURL=estilo.css.map */
