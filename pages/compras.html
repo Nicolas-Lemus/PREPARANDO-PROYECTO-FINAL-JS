@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Productos || Fashion Tienda</title>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <meta name="description" content="Tienda Fashion te da la posibilidada de realizar compras con envios gratis a todo el pais de la comodidad de tu casa.Solo registrandote ya piedes disfrutar de nuestros servicios">
+    <meta name="keywords" content="Compras,Precio,Prendas,Tienda,Fashion,Productos,Catalogo,Opciones,Calzado,Deportivo,Casual,Formal,Talles,Envio,Gratis,Compra,mModa,Ultimo">
+    <link rel="shortcut icon" href="../multimedia/letra-verde-f-de-fuente-plastico-brillante-colores-blanco-y-amarillo-aislados-en-color-negro-ilustracion-d-simbolos-156693125.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid navbar-principal">
+                <div>
+                    <a class="navbar-brand" href="../index.html"><img src="../multimedia/letra-verde-f-de-fuente-plastico-brillante-colores-blanco-y-amarillo-aislados-en-color-negro-ilustracion-d-simbolos-156693125.webp" alt="Logotipo"></a></span>
+                    <span id="carritoImage"><a href="#carprod"><img src="../multimedia/icons8-carrito-de-compras-80.webp" alt="carrito" value="0" id="imagenCarro"></a>
+                    <span id="valorCarrito"></span>
+                </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registro.html">Registrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="compras.html">Catalogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contactos">Contactos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <section class="ventas principal">
+        <h1 class="animate__animated animate__backInDown">Productos</h1>
+        <h2>Listado de productos disponibles a la venta</h2>
+    </section>
+    <div class="buscador wow animate__animated animate__flipInX">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="buscar" placeholder="Buscar Productos" aria-label="Search" required> 
+        </form>
+    </div>
+    <div class="buscarPrecio wow animate__animated animate__flipInX ">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="number" id="precioMaximo" placeholder="$3.900 a $10.000" aria-label="Search" required> 
+        </form>
+    </div>
+    <section class="productos">
+        <div id="list-example" class="list-group">
+            <a class="list-group-item list-group-item-action" href="#list-item-1">Deportivos</a>
+            <a class="list-group-item list-group-item-action" href="#list-item-6">Casusales</a>
+            <a class="list-group-item list-group-item-action" href="#list-item-11">Formales</a>
+        </div>
+        <div class="imagenes__productos container-fluid">
+            <div class="card"id="list-item-1">
+                <img src="../multimedia/nike.webp" class="card-img-top" alt="championesnike">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Precio: $4000</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups" id="talle-buttons" >
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-2">
+                <img src="../multimedia/pexels-photo-1456721.webp" class="card-img-top" alt="adidas">
+                <div class="card-body">
+                    <h5 class="card-title">Adidas</h5>
+                    <p class="card-text">Precio: $3900</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-3">
+                <img src="../multimedia/under2.webp" class="card-img-top" alt="under">
+                <div class="card-body">
+                    <h5 class="card-title">Under</h5>
+                    <p class="card-text">Precio: $5000</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-4">
+                <img src="../multimedia/puma.webp" class="card-img-top" alt="pumas">
+                <div class="card-body">
+                    <h5 class="card-title">Puma</h5>
+                    <p class="card-text">Precio: $4900</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-5">
+                <img src="../multimedia/new-balance.webp" class="card-img-top" alt="new-balance">
+                <div class="card-body">
+                    <h5 class="card-title">New Balance</h5>
+                    <p class="card-text">Precio: $5200</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-6">
+                <img src="../multimedia/reebok.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Reebock</h5>
+                    <p class="card-text">Precio: $4500</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary" id="talle40">40</button>
+                            <button type="button" class="btn btn-outline-secondary" id="talle41">41</button>
+                            <button type="button" class="btn btn-outline-secondary" id="talle42">42</button>
+                            <button type="button" class="btn btn-outline-secondary" id="talle43">43</button>
+                            <button type="button" class="btn btn-outline-secondary" id="talle44">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-7">
+                <img src="../multimedia/nauticas.webp" class="card-img-top" alt="Nauticas">
+                <div class="card-body">
+                    <h5 class="card-title">Nauticas</h5>
+                    <p class="card-text">Precio: $4900</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-8">
+                <img src="../multimedia/Sneakers.webp" class="card-img-top" alt="Sneakers">
+                <div class="card-body">
+                    <h5 class="card-title">Sneakers</h5>
+                    <p class="card-text">Precio: $6000</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-9">
+                <img src="../multimedia/levis.webp" class="card-img-top" alt="Levis">
+                <div class="card-body">
+                    <h5 class="card-title">Levi’s</h5>
+                    <p class="card-text">Precio: $5390</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-10">
+                <img src="../multimedia/Converse.webp" class="card-img-top" alt="Converse">
+                <div class="card-body">
+                    <h5 class="card-title">Converse</h5>
+                    <p class="card-text">Precio: $5999</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-11">
+                <img src="../multimedia/cuero.webp" class="card-img-top" alt="cuero">
+                <div class="card-body">
+                    <h5 class="card-title">Cuero</h5>
+                    <p class="card-text">Precio: $7000</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-12">
+                <img src="../multimedia/Zapatos-sin-cordones.webp" class="card-img-top" alt="Zapatossincordones">
+                <div class="card-body">
+                    <h5 class="card-title">Zapatos s/c</h5>
+                    <p class="card-text">Precio: $5900</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-13">
+                <img src="../multimedia/Desert.webp" class="card-img-top" alt="Desert">
+                <div class="card-body">
+                    <h5 class="card-title">Desert</h5>
+                    <p class="card-text">Precio: $6900</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-14">
+                <img src="../multimedia/Oxford.webp" class="card-img-top" alt="Oxford">
+                <div class="card-body">
+                    <h5 class="card-title">Oxford</h5>
+                    <p class="card-text">Precio: $6199</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+            <div class="card" id="list-item-15">
+                <img src="../multimedia/GazianoGirling.webp" class="card-img-top" alt="Gaziano&Girling">
+                <div class="card-body">
+                    <h5 class="card-title">Gaziano & Girling</h5>
+                    <p class="card-text">Precio: $10000</p>
+                    <h6>Talles:</h6>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary">40</button>
+                            <button type="button" class="btn btn-outline-secondary">41</button>
+                            <button type="button" class="btn btn-outline-secondary">42</button>
+                            <button type="button" class="btn btn-outline-secondary">43</button>
+                            <button type="button" class="btn btn-outline-secondary">44</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="listado">Agregar al carrito</button> 
+                </div>
+            </div>
+        </div>
+    </section >
+    <section class="carritoProductosDiv">
+        <div class="ProductosCarrito" id="carprod">
+            <div class="ProductosCarrito">
+                <h2>Carrito de compras <img src="../multimedia/59bedb277a216d0b052f128c.png" alt="carritoCompras" class="carroTitle"></h2>
+            </div>
+            <div class="listado"></div>
+            <div id="precio">
+                <p>Total a pagar : </p>
+            </div>
+            <div id="precioTotal"></div>
+        </div>
+        <div class="botones">
+            <input type="submit" value="Comprar" class="btn btn-success" id="confirmarCompra">
+        </div>
+    </section>
+    <footer>
+        <div class="description">
+            <a class="navbar-brand" href="../index.html"><img src="../multimedia/letra-verde-f-de-fuente-plastico-brillante-colores-blanco-y-amarillo-aislados-en-color-negro-ilustracion-d-simbolos-156693125.webp" alt="Logotipo" width="60px"></a>
+            <h2>Fashion Tienda</h2>
+            <div class="contactos">
+                <h4>TEL:43125049</h4>
+                <h4>CEL:093320363</h4>
+            </div>
+        </div>
+        <div class="redes__sociales" id="contactos">
+            <h3>Visitanos en nuestras redes:</h3>
+            <div class="redes">
+                <a href="#"><img src="../multimedia/icons8-facebook-48.webp" alt="icono-facebook" title="Facebook"></a>
+                <a href="#"><img src="../multimedia/icons8-instagram-48.webp" alt="icono-instagram" title="Instagram"></a>
+                <a href="#"><img src="../multimedia/icons8-twitter-50.webp" alt="icono-twitter" title="Twitter" ></a>
+            </div>
+        </div>
+        <div class="footer__nav">
+            <h5>Navegacion rapida:</h5>
+            <ul>
+                
+                <li>
+                    <a href="../index.html">Inicio</a>
+                    <p>Ingresar Usuario</p>
+                    <p>Ingresar Contraseña</p>
+                </li>
+                <li>
+                    <a href="registro.html">Registrar</a>
+                    <p>Registrarse</p>
+                    <p>Compras Online</p>
+                </li>
+                <li>
+                    <a href="catalogo.html">Catalogo</a>
+                    <p>Varidedas de Productos</p>
+                    <p>Stock</p>
+                </li>
+                <li>
+                    <a href="#contactos">Contacos</a>
+                    <p>Numeros de contactos</p>
+                    <p>Horarios</p>
+                </li>
+            </ul>
+        </div>
+        <h6>Todos los derechos reservados</h6>
+        <h6>1994-2023</h6>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        <script>
+    new WOW().init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- <script src="../js/productos.js"></script> -->
+    <script src="../js/productos.js"></script>
+</body>
+</html>

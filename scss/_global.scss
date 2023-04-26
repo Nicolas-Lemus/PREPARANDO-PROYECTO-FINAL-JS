@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    
+    #valorCarrito{
+        color: white;
+            img{
+                width: 40px;
+            }
+    }
+    .navbar{
+        padding:0;
+        margin: 0;
+    }
+    nav{
+        .navbar-principal{
+            background:black;
+            padding: 1rem;
+            .navbar-nav{
+                a:hover{
+                    color:rgb(143, 186, 143);
+                }
+            }
+
+            .navbar-collapse{
+                justify-content: right;
+            }
+            a{
+                color: white;
+                font-size: 1.3rem;
+            }
+            }
+            .navbar-toggler{
+                background:rgb(16, 214, 62);
+            }
+        }
+        .navbar-nav .nav-link.active, .navbar-nav .show .nav-link{
+            color:rgb(0, 253, 59) ;
+        }
+        img{
+            width: 80px;
+        }
+    }
+footer{
+    background: black;
+
+    h6{
+        text-align: center;
+        color: white;
+        font-size: .8rem;
+    }
+    h3{
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-size: 1rem;
+
+        @media (min-width:765px) {
+            font-size: 1.5rem;
+        }
+    }
+    .description{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0 auto;
+
+        h2{
+            font-size: 1.4rem;
+            color: white;
+            margin:auto;
+            font-family:'Skranji', cursive; 
+
+            @media (min-width:765px) {
+                font-size: 2rem;
+            }
+        }
+        .contactos{
+            margin: auto 0;
+            padding: .5rem;
+                h4{
+                color: white;
+                margin:5px;
+                font-size: .7rem;
+                
+            }
+        }
+        
+    }
+    .redes__sociales{
+        margin-top: 1rem;
+        .redes{
+            display: flex;
+            justify-content: space-evenly;
+            @media (min-width:765px) {
+                justify-content: center;
+                
+            }
+        img{
+            width: 40px;
+            @media (min-width:765px) {
+                width: 60px;
+                margin: 0 4.5rem;
+            }
+        }
+    }
+}
+    .footer__nav{
+
+        h5{
+            margin: 1.3rem;
+            color: white;
+        }
+        ul{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1rem;
+            border: 1px solid green;
+            padding: 10px;
+
+            @media (min-width:765px) {
+                grid-template-columns: repeat(4,1fr);
+            }
+        }
+        li{
+            padding: .2rem;
+            list-style: none;
+            text-align: center;
+        }
+        a{  
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+
+            @media (min-width:992px) {
+                font-size: 1.5rem;
+            }
+        }
+        p{
+            font-size: 1.1rem;
+            color: rgb(100, 209, 100);
+            font-family:'Edu NSW ACT Foundation', cursive;
+            margin-bottom: 0px;
+
+            @media (min-width:992px) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

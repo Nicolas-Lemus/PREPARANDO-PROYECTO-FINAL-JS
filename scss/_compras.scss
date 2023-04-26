@@ -1,0 +1,182 @@
+.ventas{
+    padding-top: 10rem;
+}
+.buscador{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 1rem;
+        input{
+            opacity: 80%;
+            width: 200px;
+
+            @media (min-width:765px){
+                width: 400px;
+            }
+        }
+}
+.buscarPrecio{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 1rem;
+        input{
+            opacity: 80%;
+            width: 200px;
+
+            @media (min-width:765px){
+                width: 400px;
+            }
+        }
+}
+.productos{
+    margin-top: 4rem;
+    .imagenes__productos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
+        gap: 3rem;
+
+        @media (min-width:765px){
+            display: grid;
+            grid-template-columns: repeat(2,auto);
+            gap:2rem;
+        }
+        
+        @media (min-width:992px){
+            display: grid;
+            grid-template-columns: repeat(3,auto);
+            gap:2rem;
+        }
+
+        @media (min-width:1640px){
+            display: grid;
+            grid-template-columns: repeat(5,auto);
+            gap:2rem;
+        }
+        .card{
+            background: rgba(1, 1, 1, 0.391);
+            width: 300px;
+            h5{
+                color: white;
+                font-size: 2rem;
+            }
+            p{
+                color: rgb(130, 245, 130);
+                font-size: 1.2rem;
+                font-family:'Edu NSW ACT Foundation', cursive;
+            }
+            a{
+                color: white;
+            }
+            .btn-primary{
+                background: rgba(0, 0, 0, 0.472);
+                border: 1px solid green;
+
+                &:hover{
+                    background:green;
+                    animation:pulse ;
+                    animation-duration:2s;
+                }
+            }
+            h6{
+                color: white;
+            }
+            .btn-outline-secondary{
+                color: white;
+                border: 1px solid green;
+                &:hover{
+                    background: green;
+                }
+            }
+            img{
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+            }
+        }
+    }
+    .list-group{
+        margin-top: 1rem;
+        border-radius: 0px;
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+
+        @media (min-width:765px) {
+            flex-direction: row;
+        }
+    
+        .list-group-item{
+            background: rgba(0, 0, 0, 0.632);
+            border: 1px solid green ;
+            color: white;
+
+            &:hover{
+                background: green;
+                transition: .7s;
+            }
+        }
+    }
+    .salir{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        .btn-success{
+            margin: 5rem 1rem;
+            color:white;
+            border:1px solid green;
+            background: rgba(0, 0, 0, 0.632);
+            width: 150px;
+
+            &:hover{
+                background: rgb(2, 255, 2);
+                animation:pulse;
+                animation-duration:2s;
+            }
+            a{
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+            }
+        }
+        .input-group-text{
+            background: rgb(192, 219, 174) ;
+        }
+    }
+}
+.filtro{
+    display: none;
+}
+.seleccionado{
+    background: rgb(22, 85, 41);
+}
+#valorCarrito{
+    position: relative;
+    p{
+        position: absolute;
+        top: 0px;
+        left:5px;
+    }
+}
+#carritoImage{
+    
+        img{
+        width: 30px;
+
+        
+
+        &:hover{
+            animation: bounce;
+            animation-duration:1s;
+
+            
+        }
+
+        @media (min-width:765px) {
+            width: 50px;
+        }
+    }
+}

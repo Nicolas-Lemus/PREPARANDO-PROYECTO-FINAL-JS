@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap');
+.carrusel{
+    padding-top: 112px;
+
+    @media (min-width:992px) {
+        display: none;
+    }
+    img{
+        height:250px;
+        width: 100%;
+        border-radius: 10px;
+
+        @media (min-width:765px) {
+            height: 400px;
+        }
+    }
+}
+main{
+    @media (min-width:992px){
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin: 0 12%;
+        border: 2px solid rgba(12, 52, 9, 0.589);
+    }
+}
+.parte-2{
+    img{
+        padding-top: 127px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: none;
+
+        animation:zoomIn ;
+        animation-duration:2s;
+
+        @media (min-width:992px) {
+            display: block;
+        }
+    }
+}      
+
+.principal{
+    @media (min-width:992px) {
+        padding-top: 150px;
+    }
+    h1{
+        font-size:3rem;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family:'Skranji', cursive;
+        padding: 1rem;
+        margin-top: 50px;
+    }
+    h2{
+        font-size: 1.7rem;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        padding: 1rem;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+        margin: 0 20px;
+
+        @media (min-width:765px) {
+            font-size: 2.1rem;
+        }
+
+        @media (min-width:992px) {
+            font-size: 2.5rem;
+        }
+    }
+    h3{
+        font-size: 1.2rem;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        padding: 1rem;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+
+        @media (min-width:765px) {
+            font-size: 1.5rem;
+        }
+
+        @media (min-width:992px) {
+            font-size: 2rem;
+        }
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover{
+            color: green;
+            text-decoration: underline;
+        }
+    }
+}
+.ingreso{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 10px ;
+    
+    margin: 100px 10%;
+    border: 1px solid rgba(255, 255, 255, 0.503);
+    
+    .btn-success{
+        display: inline-block;
+        margin:2rem auto;
+        color:white;
+        border:1px solid green;
+        background: rgba(0, 0, 0, 0.632);
+        width: 100px;
+
+        &:hover{
+            background: green;
+            animation:pulse;
+            animation-duration:2s;
+        }
+
+        a{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+    }
+    .input-group-text{
+        background: rgb(192, 219, 174) ;
+    }
+    #alertaRegistro ,#alertaInicio{
+        color: white;
+        font-family: 1rem;
+        margin: 1rem auto;
+    }
+}
