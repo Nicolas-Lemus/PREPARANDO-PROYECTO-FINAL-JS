@@ -1530,12 +1530,12 @@ footer .footer__nav p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin: 0 12%;
-    border: 2px solid rgba(12, 52, 9, 0.589);
+    border: 2px solid #47895E;
   }
 }
 
 .parte-2 img {
-  padding-top: 127px;
+  padding-top: 110px;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -1557,10 +1557,14 @@ footer .footer__nav p {
 .principal h1 {
   font-size: 3rem;
   text-align: center;
-  color: rgb(255, 255, 255);
   font-family: "Skranji", cursive;
   padding: 1rem;
   margin-top: 50px;
+  background-image: url(https://img.freepik.com/fotos-premium/forma-carrito-compras-sobre-fondo-verde_172429-2207.jpg);
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .principal h2 {
   font-size: 1.7rem;
@@ -1642,6 +1646,20 @@ footer .footer__nav p {
 
 .ventas {
   padding-top: 10rem;
+}
+
+#titleH1 {
+  font-size: 4rem;
+}
+@media (min-width: 768px) {
+  #titleH1 {
+    font-size: 6rem;
+  }
+}
+@media (min-width: 1044px) {
+  #titleH1 {
+    font-size: 10rem;
+  }
 }
 
 .buscador {
@@ -1825,16 +1843,37 @@ footer .footer__nav p {
   }
 }
 
+.separador__div1 {
+  background: #47895E;
+  height: 10px;
+  margin: 100px 0px 0px 0px;
+}
+
+.separador__div2 {
+  background: #47895E;
+  height: 10px;
+  margin: 200px 0px 0px 0px;
+}
+
+.compras {
+  display: none;
+}
+
+.carritoProductosDiv {
+  padding-top: 200px;
+}
+
 .listado {
-  border: 3px solid green;
+  border: 1px solid rgb(32, 106, 32);
+  box-shadow: 1px 1px 500px 10px rgba(107, 108, 107, 0.313);
   border-radius: 10px;
   width: 90%;
   min-height: 500px;
   height: auto;
   margin: 0px auto;
-  padding-top: 2rem;
   display: flex;
   flex-direction: column;
+  background: rgba(49, 49, 48, 0.194);
 }
 @media (min-width: 768px) {
   .listado {
@@ -1844,54 +1883,86 @@ footer .footer__nav p {
 .listado li {
   justify-content: space-around;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .listado li .imgCarrito {
-  width: 100px;
+  width: 60px;
+  height: 60px;
   margin-left: 1rem;
-  border-radius: 50%;
+  border-radius: 20px;
+  object-fit: fill;
+}
+@media (min-width: 768px) {
+  .listado li .imgCarrito {
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+  }
 }
 .listado li .imgCarrito:hover {
   box-shadow: 2px 3px 20px rgb(97, 206, 19);
-  width: 105px;
   transition: 1s;
 }
 .listado li .nombre {
   font-weight: bold;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.7rem;
+}
+@media (min-width: 500px) {
+  .listado li .nombre {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 768px) {
   .listado li .nombre {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 .listado li .talle {
-  font-size: 1rem;
+  font-size: 0.7rem;
+}
+@media (min-width: 500px) {
+  .listado li .talle {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 768px) {
   .listado li .talle {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 }
 .listado li .precio {
   font-family: "Courier New", Courier, monospace;
-  font-size: 1rem;
+  font-size: 0.7rem;
+}
+@media (min-width: 500px) {
+  .listado li .precio {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 768px) {
   .listado li .precio {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 .listado li .eliminar-producto {
-  background: rgb(61, 98, 40);
+  background: rgb(27, 28, 27);
   padding: 0.2rem;
   margin-right: 0.7rem;
   color: white;
-  height: 2rem;
+  height: 1.5rem;
   border-radius: 50%;
   border: 1px solid green;
-  width: 2rem;
+  width: 1.5rem;
+  font-size: 0.7rem;
+}
+@media (min-width: 768px) {
+  .listado li .eliminar-producto {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.3rem;
+  }
 }
 .listado li .eliminar-producto:hover {
   background: transparent;
@@ -1903,15 +1974,17 @@ footer .footer__nav p {
 }
 
 .ProductosCarrito {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   color: white;
   font-size: 1rem;
   list-style: none;
+  text-align: center;
 }
 .ProductosCarrito h2 {
   font-size: 3.5rem;
   font-family: "Skranji", cursive;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   background-image: url(https://img.freepik.com/fotos-premium/forma-carrito-compras-sobre-fondo-verde_172429-2207.jpg);
   background-position: center;
   -webkit-background-clip: text;
@@ -1973,10 +2046,6 @@ footer .footer__nav p {
 }
 .botones .input-group-text {
   background: rgb(192, 219, 174);
-}
-
-.ceparador {
-  height: 300px;
 }
 
 /*# sourceMappingURL=estilo.css.map */

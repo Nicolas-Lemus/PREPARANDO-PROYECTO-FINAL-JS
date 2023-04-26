@@ -21,12 +21,12 @@ main{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         margin: 0 12%;
-        border: 2px solid rgba(12, 52, 9, 0.589);
+        border: 2px solid #47895E ;
     }
 }
 .parte-2{
     img{
-        padding-top: 127px;
+        padding-top: 110px;
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -48,10 +48,14 @@ main{
     h1{
         font-size:3rem;
         text-align: center;
-        color: rgb(255, 255, 255);
         font-family:'Skranji', cursive;
         padding: 1rem;
         margin-top: 50px;
+        background-image: url(https://img.freepik.com/fotos-premium/forma-carrito-compras-sobre-fondo-verde_172429-2207.jpg);
+        background-position: center;
+        -webkit-background-clip:text;
+        background-clip: text;
+        color: transparent;
     }
     h2{
         font-size: 1.7rem;

@@ -1,6 +1,17 @@
 .ventas{
     padding-top: 10rem;
 }
+#titleH1{
+    font-size: 4rem;
+
+    @media (min-width:768px){
+        font-size: 6rem;
+    }
+
+    @media (min-width:1044px){
+        font-size: 10rem;
+    }
+}
 .buscador{
     display: flex;
     flex-direction: column;
@@ -162,21 +173,27 @@
     }
 }
 #carritoImage{
-    
         img{
-        width: 30px;
-
-        
-
+            width: 30px;
         &:hover{
             animation: bounce;
             animation-duration:1s;
-
-            
         }
-
         @media (min-width:765px) {
             width: 50px;
         }
     }
+}
+.separador__div1{
+    background: #47895E;
+    height: 10px;
+    margin: 100px 0px 0px 0px;
+}
+.separador__div2{
+    background: #47895E;
+    height: 10px;
+    margin: 200px 0px 0px 0px;
+}
+.compras{
+    display: none;
 }
