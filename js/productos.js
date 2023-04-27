@@ -90,6 +90,7 @@ function actualizarCarrito() {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
+            <span class="cantidad">${producto.cantidad}</span>
             <img src="${producto.img}"class="imgCarrito">
             <span class="nombre">${producto.nombre}</span>
             <span class="talle">Talle ${producto.talle}</span>
@@ -108,6 +109,7 @@ productosTalles.forEach((producto,) => {
     const imgProducto = producto.querySelector(".card-img-top").src;
 
     let talleSeleccionado;
+    let cantidad = 1;
 
     botonesTalles.forEach(botonTalle => {
         botonTalle.addEventListener('click', () => {
@@ -128,7 +130,8 @@ productosTalles.forEach((producto,) => {
             nombre: nombreProducto,
             precio: precioProducto,
             talle: talleSeleccionado,
-            img: imgProducto
+            img: imgProducto,
+            cantidad:cantidad
         };
         carritoProductos.push(productoSeleccionado);
         guardarProductosEnLocalStorage();
@@ -136,7 +139,7 @@ productosTalles.forEach((producto,) => {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
-
+            <span class="cantidad">${cantidad}</span>
             <img src="${imgProducto}"class="imgCarrito">
             <span class="nombre">${nombreProducto}</span>
             <span class="talle">Talle ${talleSeleccionado}</span>
@@ -154,23 +157,6 @@ productosTalles.forEach((producto,) => {
     });
 });
 
-/* function actualizarCarrito() {
-    carrito.innerHTML = '';
-    carritoProductos.forEach((producto, index) => {
-        const li = document.createElement('li');
-        li.classList.add('producto-carrito');
-        li.innerHTML = `
-            <img src="${producto.img}"class="imgCarrito">
-            <span class="nombre">${producto.nombre}</span>
-            <span class="talle">Talle ${producto.talle}</span>
-            <span class="precio">${producto.precio} x ${producto.cantidad}</span>
-            <button class="eliminar-producto" data-index="${index}">X</button>
-        `;
-        carrito.appendChild(li);
-    });
-    contadorCarrito.textContent = cantidadProductos;
-}
- */
 function actualizarPrecioTotal() {
     let precioTotalCarrito = 0;
     const preciosProductos = document.querySelectorAll('.precio');
@@ -182,3 +168,42 @@ function actualizarPrecioTotal() {
     });
     precioTotal.textContent  = `$${precioTotalCarrito.toFixed(2)}`;
 }
+
+
+/* function actualizarPrecioTotal() {
+    let precioTotalCarrito = 0;
+    const preciosProductos = document.querySelectorAll('.precio');
+    const productosEnCarrito = {};
+    preciosProductos.forEach(precioProducto => {
+        const producto = precioProducto.parentNode;
+        const nombreProducto = producto.querySelector('.nombre').textContent;
+        const talleProducto = producto.querySelector('.talle').textContent.replace('Talle ', '');
+        const precioProductoNumerico = parseFloat(precioProducto.textContent.replace('Precio: $', ''));
+        if (!isNaN(precioProductoNumerico)) {
+            const claveProducto = `${nombreProducto}_${talleProducto}`;
+            if (claveProducto in productosEnCarrito) {
+                productosEnCarrito[claveProducto].cantidad++;
+                productosEnCarrito[claveProducto].precio += precioProductoNumerico;
+            } else {
+                productosEnCarrito[claveProducto] = {
+                    nombre: nombreProducto,
+                    talle: talleProducto,
+                    cantidad: 1,
+                    precio: precioProductoNumerico
+                };
+            }
+        }
+    });
+    for (const claveProducto in productosEnCarrito) {
+        const producto = productosEnCarrito[claveProducto];
+        const cantidadProducto = producto.cantidad;
+        const precioProducto = producto.precio / cantidadProducto;
+        producto.precio = precioProducto;
+        precioTotalCarrito += producto.precio * cantidadProducto;
+    }
+    precioTotal.textContent = `$${precioTotalCarrito.toFixed(2)}`;
+    actualizarCarrito(); // Mostrar en consola el objeto productosEnCarrito
+    // Resto del código de la función actualizarPrecioTotal()
+}
+
+ */

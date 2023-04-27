@@ -221,5 +221,8 @@ productosTalles.forEach((producto,) => {
         botonesTalles.forEach(boton => {
             boton.classList.remove('seleccionado');
         });
+        cantidadProductos++;
+    contadorCarrito.textContent = cantidadProductos;
+    actualizarPrecioTotal();
     });
 });
