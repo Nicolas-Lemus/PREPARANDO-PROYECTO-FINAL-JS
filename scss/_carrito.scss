@@ -5,7 +5,7 @@
     border: 1px solid rgb(32, 106, 32);
     box-shadow:1px 1px 500px 10px rgba(107, 108, 107, 0.313);
     border-radius: 10px;
-    width: 90%;
+    width: 80%;
     min-height:500px;
     height: auto;
     margin: 0px auto;
@@ -13,14 +13,12 @@
     flex-direction: column;
     background: rgba(49, 49, 48, 0.194);
 
-    @media (min-width:768px){
-        width: 730px;
-    }
 
     li{
         justify-content: space-around;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+        border-bottom: 1px rgb(70, 107, 51) solid;
+        padding:.5rem;
+        align-items: center;
 
         .imgCarrito{
             width: 60px;
@@ -126,6 +124,7 @@
         background-clip: text;
         color: transparent;
 
+
         .carroTitle{
             display: none;
 
@@ -188,9 +187,12 @@
 .volverCompras{
     width: 80px;
     margin-left: 2rem;
+    text-decoration: none;
+    color: rgb(148, 228, 165);
+    font-size: 1.3rem;
 
     &:hover{
-        scale: 1.1;
-        transition: 1s;
+        animation:flip;
+        animation-duration:1.5s;
     }
 }
