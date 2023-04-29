@@ -102,14 +102,14 @@ function actualizarCarrito() {
     contadorCarrito.textContent = cantidadProductos;
 }
 
-productosTalles.forEach((producto,) => {
+productosTalles.forEach((producto) => {
     const nombreProducto = producto.querySelector('.card-title').textContent;
     const precioProducto = producto.querySelector('.card-text').textContent;
     const botonesTalles = producto.querySelectorAll('.btn-outline-secondary');
     const imgProducto = producto.querySelector(".card-img-top").src;
 
     let talleSeleccionado;
-    let cantidad = 1;
+    let cantidad = 0;
 
     botonesTalles.forEach(botonTalle => {
         botonTalle.addEventListener('click', () => {
@@ -124,8 +124,24 @@ productosTalles.forEach((producto,) => {
     const botonTarjeta = producto.querySelector('.btn-primary');
     botonTarjeta.addEventListener('click', () => {
         if (!talleSeleccionado) {
+            Swal.fire({
+                title: 'Ingrese Talle',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
             return;
         }
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Producto Agregado',
+            showConfirmButton: false,
+            timer: 1000
+        })
         const productoSeleccionado = {
             nombre: nombreProducto,
             precio: precioProducto,
@@ -159,6 +175,7 @@ productosTalles.forEach((producto,) => {
 
 function actualizarPrecioTotal() {
     let precioTotalCarrito = 0;
+
     const preciosProductos = document.querySelectorAll('.precio');
     preciosProductos.forEach(precioProducto => {
         const precioProductoNumerico = parseFloat(precioProducto.textContent.replace('Precio: $', ''));
@@ -168,42 +185,43 @@ function actualizarPrecioTotal() {
     });
     precioTotal.textContent  = `$${precioTotalCarrito.toFixed(2)}`;
 }
-
-
-/* function actualizarPrecioTotal() {
-    let precioTotalCarrito = 0;
-    const preciosProductos = document.querySelectorAll('.precio');
-    const productosEnCarrito = {};
-    preciosProductos.forEach(precioProducto => {
-        const producto = precioProducto.parentNode;
-        const nombreProducto = producto.querySelector('.nombre').textContent;
-        const talleProducto = producto.querySelector('.talle').textContent.replace('Talle ', '');
-        const precioProductoNumerico = parseFloat(precioProducto.textContent.replace('Precio: $', ''));
-        if (!isNaN(precioProductoNumerico)) {
-            const claveProducto = `${nombreProducto}_${talleProducto}`;
-            if (claveProducto in productosEnCarrito) {
-                productosEnCarrito[claveProducto].cantidad++;
-                productosEnCarrito[claveProducto].precio += precioProductoNumerico;
-            } else {
-                productosEnCarrito[claveProducto] = {
-                    nombre: nombreProducto,
-                    talle: talleProducto,
-                    cantidad: 1,
-                    precio: precioProductoNumerico
-                };
-            }
-        }
-    });
-    for (const claveProducto in productosEnCarrito) {
-        const producto = productosEnCarrito[claveProducto];
-        const cantidadProducto = producto.cantidad;
-        const precioProducto = producto.precio / cantidadProducto;
-        producto.precio = precioProducto;
-        precioTotalCarrito += producto.precio * cantidadProducto;
+function agregarProductoAlCarrito(nombreProducto, precioProducto, talleSeleccionado, imgProducto) {
+    // Buscar si el producto ya existe en el carrito
+    const productoExistente = carritoProductos.find(producto => producto.nombre === nombreProducto && producto.talle === talleSeleccionado);
+    if (productoExistente) {
+        // Si el producto ya existe, sumar 1 al contador
+        productoExistente.cantidad++;
+        productoExistente.precio = precioProducto * cantidad;
+    } else {
+        // Si el producto no existe, agregarlo al carrito
+        carritoProductos.push({
+            nombre: nombreProducto,
+            precio:parseFloat(precioProducto),
+            talle: talleSeleccionado,
+            img: imgProducto,
+            cantidad:cantidad
+        });
     }
-    precioTotal.textContent = `$${precioTotalCarrito.toFixed(2)}`;
-    actualizarCarrito(); // Mostrar en consola el objeto productosEnCarrito
-    // Resto del código de la función actualizarPrecioTotal()
+    // Actualizar la cantidad de productos y el precio total en el carrito
+    cantidadProductos++;
+    actualizarCarrito();
+    actualizarPrecioTotal();
+    guardarProductosEnLocalStorage();
 }
 
- */
+//probando efecto imagenes zoom
+const imagenesProducto = document.querySelectorAll('.card-img-top');
+imagenesProducto.forEach((imagen) => {
+    imagen.addEventListener('click', () => {
+    const imageUrl = imagen.src;
+
+        Swal.fire({
+            title: imagen.alt,
+            imageUrl: imageUrl,
+            imageWidth: 800,
+            imageHeight: 400,
+            imageAlt: 'Imagen de producto ampliada',
+        });
+    });
+});
+

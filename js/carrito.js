@@ -1,4 +1,3 @@
-
 const talles = [40, 41, 42, 43, 44];
 const productosTalles = document.querySelectorAll('.card');
 const carrito = document.querySelector('.listado');
@@ -16,154 +15,29 @@ if (localStorage.getItem('carritoProductos')){
     actualizarPrecioTotal();
 }
 
-function agregarProductoAlCarrito(nombreProducto, precioProducto, talleSeleccionado, imgProducto) {
-    // Buscar si el producto ya existe en el carrito
-    const productoExistente = carritoProductos.find(producto => producto.nombre === nombreProducto && producto.talle === talleSeleccionado);
-    if (productoExistente) {
-        // Si el producto ya existe, sumar 1 al contador
-        productoExistente.cantidad++;
-    } else {
-        // Si el producto no existe, agregarlo al carrito
-        carritoProductos.push({
-            nombre: nombreProducto,
-            precio: precioProducto,
-            talle: talleSeleccionado,
-            img: imgProducto,
-            cantidad: 1
-        });
-    }
-    // Actualizar la cantidad de productos y el precio total en el carrito
-    cantidadProductos++;
-    actualizarCarrito();
-    actualizarPrecioTotal();
-    guardarProductosEnLocalStorage();
-}
-
-productosTalles.forEach((producto) => {
-    // ...
-    const botonTarjeta = producto.querySelector('.btn-primary');
-    botonTarjeta.addEventListener('click', () => {
-        if (!talleSeleccionado) {
-            return;
-        }
-        agregarProductoAlCarrito(nombreProducto, precioProducto, talleSeleccionado, imgProducto);
-    });
-});
-
 
 function guardarProductosEnLocalStorage() {
     localStorage.setItem('carritoProductos',JSON.stringify(carritoProductos));
     localStorage.setItem('cantidadProductos', cantidadProductos);
-    carritoProductos.forEach((producto, index) => {
-        localStorage.setItem(`producto-${index}`, JSON.stringify(producto));
-    });
-}
+} 
 
-
-function actualizarProductosAgrupados() {
-    productosAgrupados = {};
-    carritoProductos.forEach((producto) => {
-        const key = producto.nombre + producto.talle;
-        if (key in productosAgrupados) {
-            productosAgrupados[key]++;
-        } else {
-            productosAgrupados[key] = 1;
-        }
-    });
-}
 
 function actualizarCarrito() {
     carrito.innerHTML = '';
-    actualizarProductosAgrupados();
-    for (const key in productosAgrupados) {
-        if (productosAgrupados.hasOwnProperty(key)) {
-            const cantidad = productosAgrupados[key];
-            const nombre = key.slice(0, -2);
-            const talle = key.slice(-2);
-            const producto = carritoProductos.find(p => p.nombre === nombre && p.talle === talle);
-            const li = document.createElement('li');
-            li.classList.add('producto-carrito');
-            li.innerHTML = `
-                <div class="cantidad">${cantidad}</div>
-                <img src="${producto.img}" class="imgCarrito">
-                <span class="nombre">${nombre}</span>
-                <span class="talle">Talle ${talle}</span>
-                <span class="precio">${producto.precio}</span>
-                <button class="eliminar-producto" data-nombre="${nombre}" data-talle="${talle}">X</button>
-            `;
-            carrito.appendChild(li);
-        }
-    }
-    contadorCarrito.textContent = cantidadProductos;
-}
-
-productosTalles.forEach((producto,) => {
-    const nombreProducto = producto.querySelector('.card-title').textContent;
-    const precioProducto = producto.querySelector('.card-text').textContent;
-    const botonesTalles = producto.querySelectorAll('.btn-outline-secondary');
-    const imgProducto = producto.querySelector(".card-img-top").src;
-
-    let talleSeleccionado;
-
-    botonesTalles.forEach(botonTalle => {
-        botonTalle.addEventListener('click', () => {
-            botonesTalles.forEach(boton => {
-                boton.classList.remove('seleccionado');
-            });
-            botonTalle.classList.add('seleccionado');
-            talleSeleccionado = botonTalle.textContent;
-        });
-    });
-
-    const botonTarjeta = producto.querySelector('.btn-primary');
-    botonTarjeta.addEventListener('click', () => {
-        if (!talleSeleccionado) {
-            return;
-        }
-        let productoExistente = false;
-        carritoProductos.forEach((producto, index) => {
-            if (producto.nombre === nombreProducto && producto.talle === talleSeleccionado) {
-                productoExistente = true;
-                carritoProductos[index].cantidad++;
-                cantidadProductos++;
-            }
-        });
-        if (!productoExistente) {
-            const productoSeleccionado = {
-                nombre: nombreProducto,
-                precio: precioProducto,
-                talle: talleSeleccionado,
-                img: imgProducto,
-                cantidad: 1
-            };
-            carritoProductos.push(productoSeleccionado);
-            cantidadProductos++;
-        }
-        guardarProductosEnLocalStorage();
-        const index = carritoProductos.length - 1;
+    carritoProductos.forEach((producto, index) => {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
-
-            <img src="${imgProducto}"class="imgCarrito">
-            <span class="nombre">${nombreProducto}</span>
-            <span class="talle">Talle ${talleSeleccionado}</span>
-            <span class="precio">${precioProducto}</span>
+            <img src="${producto.img}"class="imgCarrito">
+            <span class="nombre">${producto.nombre}</span>
+            <span class="talle">Talle ${producto.talle}</span>
+            <span class="precio">${producto.precio}</span>
             <button class="eliminar-producto" data-index="${index}">X</button>
         `;
         carrito.appendChild(li);
-
-        actualizarCarrito();
-        actualizarPrecioTotal();
-        talleSeleccionado = null;
-        botonesTalles.forEach(boton => {
-            boton.classList.remove('seleccionado');
-        });
-        cantidadProductos++;
-    contadorCarrito.textContent = cantidadProductos;
-    actualizarPrecioTotal();
     });
-});
+    contadorCarrito.textContent = cantidadProductos;
+}
 
 function actualizarPrecioTotal() {
     let precioTotalCarrito = 0;
@@ -175,8 +49,7 @@ function actualizarPrecioTotal() {
         }
     });
     precioTotal.textContent  = `$${precioTotalCarrito.toFixed(2)}`;
-} 
-
+}
 
 carrito.addEventListener('click', (event) => {
     if (event.target.classList.contains('eliminar-producto')) {
@@ -188,27 +61,49 @@ carrito.addEventListener('click', (event) => {
     actualizarPrecioTotal();
     }
 }); 
+
 const botonComprar = document.querySelector("#confirmarCompra");
 botonComprar.addEventListener("click", () => {
+    new Promise((resolve, reject) => {
     if (parseFloat(precioTotal.textContent.slice(1)) === 0) {
-        Swal.fire({
-            icon: 'error',
-            title: "Verificar!",
-            text: 'Tu Carrito esta vacio!',
-            timer: 3000,
-            })
+        reject(new Error("Tu Carrito esta vacio!"));
     } else {
-    Swal.fire({
-        icon: "success",
-        title: "Gracias por su compra",
-        showConfirmButton: false,
-        timer: 3000,
-    });
-    carritoProductos = [];
-    cantidadProductos = 0;
-    actualizarCarrito();
-    actualizarPrecioTotal();
-    localStorage.removeItem("carritoProductos");
-    localStorage.removeItem("cantidadProductos");
+        resolve();
     }
-}); 
+    })
+    .then(() => {
+        Swal.fire({
+        icon: "info",
+        title: "procesando",
+        showConfirmButton: false,
+        timer: 2000,
+        });
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                carritoProductos = [];
+                cantidadProductos = 0;
+                actualizarCarrito();
+                actualizarPrecioTotal();
+                localStorage.removeItem("carritoProductos");
+                localStorage.removeItem("cantidadProductos");
+            resolve();
+            }, 2000);
+        });
+    })
+    .then(() => {
+        Swal.fire({
+            icon: "success",
+            title: "Gracias por su compra",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    })
+    .catch((error) => {
+        Swal.fire({
+            icon: "error",
+            title: "Verificar!",
+            text: error.message,
+            timer: 3000,
+        });
+    });
+});

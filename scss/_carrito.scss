@@ -192,7 +192,7 @@
     font-size: 1.3rem;
 
     &:hover{
-        animation:flip;
-        animation-duration:1.5s;
+        scale: 1.1;
+        transition: 1s;
     }
 }
