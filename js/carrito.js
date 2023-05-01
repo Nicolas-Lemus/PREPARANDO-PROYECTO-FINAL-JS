@@ -21,10 +21,9 @@ function guardarProductosEnLocalStorage() {
     localStorage.setItem('cantidadProductos', cantidadProductos);
 } 
 
-
 function actualizarCarrito() {
     carrito.innerHTML = '';
-    carritoProductos.forEach((producto, index) => {
+        carritoProductos.forEach((producto, index) => {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
@@ -76,7 +75,7 @@ botonComprar.addEventListener("click", () => {
         icon: "info",
         title: "procesando",
         showConfirmButton: false,
-        timer: 2000,
+        timer: 2500,
         });
         return new Promise((resolve) => {
             setTimeout(() => {

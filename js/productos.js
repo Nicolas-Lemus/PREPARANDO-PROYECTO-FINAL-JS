@@ -1,4 +1,6 @@
-const calzados = [
+//convertimos OBJETO calzados en archivo data.json 
+
+/* const calzados = [
     {nombre: "Nike", precio: 4000 , tipo:"Deportivo"},
     {nombre: "Adidas", precio: 3900, tipo:"Deportivo"},
     {nombre: "Under", precio: 5000, tipo:"Deportivo"},
@@ -16,12 +18,7 @@ const calzados = [
     {nombre: "Desert", precio: 6900, tipo:"Formal"},
     {nombre: "Oxford", precio: 6199, tipo:"Formal"},
     {nombre: "Gaziano & G", precio: 10000, tipo:"Formal"}
-];
-let nuevoProducto = new agregarProductos("Reebok", 4500, "Deportivo");
-//agregamos la variable a Calzados
-calzados.push(nuevoProducto);
-//sin stock
-calzados.splice(5,1);
+]; */
 
 function agregarProductos(nombre,precio,tipo){
     this.nombre=nombre;
@@ -71,6 +68,13 @@ const precioTotal = document.querySelector('#precioTotal');
 let cantidadProductos = 0;
 let carritoProductos = [];
 
+const getCalzados = async ()=>{
+    const response = await fetch("../data/dataCalzados.json");
+    const calzados = await response.json();
+    return calzados;
+}
+getCalzados();
+
 // Comprobar si hay datos en el Local Storage
 if (localStorage.getItem('carritoProductos')){
     carritoProductos = JSON.parse(localStorage.getItem('carritoProductos'));
@@ -90,7 +94,6 @@ function actualizarCarrito() {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
-            <span class="cantidad">${producto.cantidad}</span>
             <img src="${producto.img}"class="imgCarrito">
             <span class="nombre">${producto.nombre}</span>
             <span class="talle">Talle ${producto.talle}</span>
@@ -109,7 +112,7 @@ productosTalles.forEach((producto) => {
     const imgProducto = producto.querySelector(".card-img-top").src;
 
     let talleSeleccionado;
-    let cantidad = 0;
+    let cantidad =0;
 
     botonesTalles.forEach(botonTalle => {
         botonTalle.addEventListener('click', () => {
@@ -131,15 +134,6 @@ productosTalles.forEach((producto) => {
                 showConfirmButton: false,
                 timer: 1200
             })
-            /* Swal.fire({
-                title: 'Ingrese Talle',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            }); */
             return;
         }
         Swal.fire({
@@ -151,7 +145,7 @@ productosTalles.forEach((producto) => {
         })
         const productoSeleccionado = {
             nombre: nombreProducto,
-            precio: precioProducto,
+            precio:precioProducto,
             talle: talleSeleccionado,
             img: imgProducto,
             cantidad:cantidad
@@ -162,7 +156,7 @@ productosTalles.forEach((producto) => {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
-            <span class="cantidad">${cantidad}</span>
+            
             <img src="${imgProducto}"class="imgCarrito">
             <span class="nombre">${nombreProducto}</span>
             <span class="talle">Talle ${talleSeleccionado}</span>
@@ -193,22 +187,12 @@ function actualizarPrecioTotal() {
     precioTotal.textContent  = `$${precioTotalCarrito.toFixed(2)}`;
 }
 function agregarProductoAlCarrito(nombreProducto, precioProducto, talleSeleccionado, imgProducto) {
-    // Buscar si el producto ya existe en el carrito
-    const productoExistente = carritoProductos.find(producto => producto.nombre === nombreProducto && producto.talle === talleSeleccionado);
-    if (productoExistente) {
-        // Si el producto ya existe, sumar 1 al contador
-        productoExistente.cantidad++;
-        productoExistente.precio = precioProducto * cantidad;
-    } else {
-        // Si el producto no existe, agregarlo al carrito
         carritoProductos.push({
             nombre: nombreProducto,
             precio:parseFloat(precioProducto),
             talle: talleSeleccionado,
-            img: imgProducto,
-            cantidad:cantidad
+            img: imgProducto
         });
-    }
     // Actualizar la cantidad de productos y el precio total en el carrito
     cantidadProductos++;
     actualizarCarrito();
