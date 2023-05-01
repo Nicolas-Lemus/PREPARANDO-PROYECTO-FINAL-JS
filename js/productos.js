@@ -125,6 +125,13 @@ productosTalles.forEach((producto) => {
     botonTarjeta.addEventListener('click', () => {
         if (!talleSeleccionado) {
             Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Ingrese talle',
+                showConfirmButton: false,
+                timer: 1200
+            })
+            /* Swal.fire({
                 title: 'Ingrese Talle',
                 showClass: {
                     popup: 'animate__animated animate__fadeInDown'
@@ -132,7 +139,7 @@ productosTalles.forEach((producto) => {
                 hideClass: {
                     popup: 'animate__animated animate__fadeOutUp'
                 }
-            });
+            }); */
             return;
         }
         Swal.fire({
@@ -140,7 +147,7 @@ productosTalles.forEach((producto) => {
             icon: 'success',
             title: 'Producto Agregado',
             showConfirmButton: false,
-            timer: 1000
+            timer: 1200
         })
         const productoSeleccionado = {
             nombre: nombreProducto,
@@ -225,3 +232,18 @@ imagenesProducto.forEach((imagen) => {
     });
 });
 
+const finalizarSeccion =document.querySelector("#cerrarSeccion");
+finalizarSeccion.addEventListener("click", ()=>{
+    Swal.fire({
+        title: 'Seccion Finalizada. ¡Gracias!',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
+    .then(() => {
+        window.location.href = "../index.html";
+    });
+})
