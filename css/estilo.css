@@ -1766,6 +1766,7 @@ footer .footer__nav p {
   width: 300px;
   height: 300px;
   object-fit: cover;
+  cursor: zoom-in;
 }
 .productos .list-group {
   margin-top: 1rem;
@@ -1890,14 +1891,15 @@ footer .footer__nav p {
 }
 @media (min-width: 768px) {
   .listado li .imgCarrito {
-    width: 100px;
-    height: 100px;
-    object-fit: fill;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
   }
 }
 .listado li .imgCarrito:hover {
   box-shadow: 2px 3px 20px rgb(97, 206, 19);
   transition: 1s;
+  scale: 1.1;
 }
 .listado li .nombre {
   font-weight: bold;
@@ -1907,12 +1909,12 @@ footer .footer__nav p {
 }
 @media (min-width: 500px) {
   .listado li .nombre {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 }
 @media (min-width: 768px) {
   .listado li .nombre {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 }
 .listado li .talle {
@@ -1920,12 +1922,12 @@ footer .footer__nav p {
 }
 @media (min-width: 500px) {
   .listado li .talle {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 }
 @media (min-width: 768px) {
   .listado li .talle {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 }
 .listado li .precio {
@@ -1934,12 +1936,12 @@ footer .footer__nav p {
 }
 @media (min-width: 500px) {
   .listado li .precio {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 }
 @media (min-width: 768px) {
   .listado li .precio {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 .listado li .eliminar-producto {

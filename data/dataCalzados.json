@@ -1,75 +1,90 @@
 [
-    {
+    {   
+        "id":"list-item-1",
         "nombre":"Nike",
         "precio":4000,
         "tipo":"Deportivo"
     },
     {
+        "id":"list-item-2",
         "nombre":"Adidas",
         "precio":3900,
         "tipo":"Deportivo"
     },
     {
+        "id":"list-item-3",
         "nombre":"Under",
         "precio":5000,
         "tipo":"Deportivo"
     },
     {
+        "id":"list-item-4",
         "nombre":"Puma",
         "precio":4900,
         "tipo":"Deportivo"
     },
     {
+        "id":"list-item-5",
         "nombre":"New Balance",
         "precio":5200,
         "tipo":"Deportivo"
     },
     {
+        "id":"list-item-6",
         "nombre":"Botas",
         "precio":5000,
         "tipo":"Casual"
     },
     {
+        "id":"list-item-7",
         "nombre":"Nauticas",
         "precio":4900,
         "tipo":"Casual"
     },
     {
+        "id":"list-item-8",
         "nombre":"Sneakers",
         "precio":6000,
         "tipo":"Casual"
     },
     {
+        "id":"list-item-9",
         "nombre":"Levi’s",
         "precio":5390,
         "tipo":"Casual"
     },
     {
+        "id":"list-item-10",
         "nombre":"Converse",
         "precio":5999,
         "tipo":"Casual"
     },
     {
+        "id":"list-item-11",
         "nombre":"Cuero",
         "precio":7000,
         "tipo":"Formal"
     },
     {
+        "id":"list-item-12",
         "nombre":"Zapatos sin cordones",
         "precio":5900,
         "tipo":"Formal"
     },
     {
+        "id":"list-item-13",
         "nombre":"Desert",
         "precio":6900,
         "tipo":"Formal"
     },
     {
+        "id":"list-item-14",
         "nombre":"Oxford",
         "precio":6199,
         "tipo":"Formal"
     },
     {
+        "id":"list-item-15",
         "nombre":"Gaziano & G",
         "precio":10000,
         "tipo":"Formal"

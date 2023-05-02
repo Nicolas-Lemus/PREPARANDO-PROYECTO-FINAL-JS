@@ -71,6 +71,11 @@
             <input class="form-control me-2" type="number" id="precioMaximo" placeholder="$3.900 a $10.000" aria-label="Search" required> 
         </form>
     </div>
+    <div class="buscarPrecio wow animate__animated animate__flipInX">    
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="text" id="buscarTipo" placeholder="Tipo de calzado(Deportivo,Casual,Formal)" aria-label="Search" required> 
+        </form>
+    </div>
     <section class="productos">
         <div id="list-example" class="list-group">
             <a class="list-group-item list-group-item-action" href="#list-item-1">Deportivos</a>
@@ -79,7 +84,7 @@
         </div>
         <div class="imagenes__productos container-fluid">
             <div class="card"id="list-item-1">
-                <img src="../multimedia/nike.webp" class="card-img-top" alt="championesnike">
+                <img src="../multimedia/nike.webp" class="card-img-top img-zoom" alt="championesnike">
                 <div class="card-body">
                     <h5 class="card-title">Nike</h5>
                     <p class="card-text">Precio: $4000</p>
@@ -382,6 +387,7 @@
         <h6>Todos los derechos reservados</h6>
         <h6>1994-2023</h6>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
         <script>
     new WOW().init();

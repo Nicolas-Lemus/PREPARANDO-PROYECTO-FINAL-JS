@@ -1,44 +1,12 @@
 //convertimos OBJETO calzados en archivo data.json 
-
-/* const calzados = [
-    {nombre: "Nike", precio: 4000 , tipo:"Deportivo"},
-    {nombre: "Adidas", precio: 3900, tipo:"Deportivo"},
-    {nombre: "Under", precio: 5000, tipo:"Deportivo"},
-    {nombre: "Puma", precio: 4900, tipo:"Deportivo"},
-    {nombre: "New Balance", precio: 5200, tipo:"Deportivo"},
-
-    {nombre: "Botas", precio: 5000, tipo:"Casual"},
-    {nombre: "Nauticas", precio: 4900, tipo:"Casual"},
-    {nombre: "Sneakers", precio: 6000, tipo:"Casual"},
-    {nombre: "Levi’s", precio: 5390, tipo:"Casual"},
-    {nombre: "Converse", precio: 5999,  tipo:"Casual"},
-    
-    {nombre: "Cuero", precio: 7000, tipo:"Formal"},
-    {nombre: "Zapatos sin cordones", precio: 5900, tipo:"Formal"},
-    {nombre: "Desert", precio: 6900, tipo:"Formal"},
-    {nombre: "Oxford", precio: 6199, tipo:"Formal"},
-    {nombre: "Gaziano & G", precio: 10000, tipo:"Formal"}
-]; */
-
-function agregarProductos(nombre,precio,tipo){
-    this.nombre=nombre;
-    this.precio=precio;
-    this.tipo=tipo;
-}
-
-//filtro de busqueda
-const buscador=document.querySelector("#buscar");
-buscador.addEventListener("keyup" , e => {
-    if(e.target.matches("#buscar")){
-        document.querySelectorAll(".card").forEach(calz =>{
-            calz.textContent.toLocaleLowerCase().includes(e.target.value)
-            ? calz.classList.remove("filtro")
-            :calz.classList.add("filtro");
-        })
-    }
-});
-
+// ../data/data.json
 //filtrado por precio
+const inputPrecioMaximo = document.getElementById('precioMaximo');
+inputPrecioMaximo.addEventListener('input', function() {
+    const precioMaximo = parseInt(this.value);
+    filtrarPorPrecio(precioMaximo);
+});
+//mostramos card de precios
 const productos = document.querySelectorAll('.card');
 function filtrarPorPrecio(precioMaximo) {
     for (let i = 0; i < productos.length; i++) {
@@ -51,30 +19,63 @@ function filtrarPorPrecio(precioMaximo) {
         }
     }
 }
-
-const inputPrecioMaximo = document.getElementById('precioMaximo');
-inputPrecioMaximo.addEventListener('input', function() {
-    const precioMaximo = parseInt(this.value);
-    filtrarPorPrecio(precioMaximo);
-});
-
 //talles
-
 const talles = [40, 41, 42, 43, 44];
+//querySelectors
 const productosTalles = document.querySelectorAll('.card');
 const carrito = document.querySelector('.listado');
 const contadorCarrito = document.querySelector('#valorCarrito');
 const precioTotal = document.querySelector('#precioTotal');
 let cantidadProductos = 0;
 let carritoProductos = [];
-
-const getCalzados = async ()=>{
+//async
+const getCalzados = async () => {
     const response = await fetch("../data/dataCalzados.json");
     const calzados = await response.json();
-    return calzados;
-}
+//filtro de tipo
+    const buscadorTipo = document.querySelector("#buscarTipo");
+    let tipoBuscado = "";
+    buscadorTipo.addEventListener("keyup", e => {
+        if (e.target.matches("#buscarTipo")) {
+            tipoBuscado = e.target.value.toLowerCase();
+            for (const calz of calzados) {
+                if (calz.tipo.toLowerCase().includes(tipoBuscado)) {
+                    const elemento = document.getElementById(calz.id);
+                    if (elemento) {
+                    elemento.classList.remove("filtro");
+                    }
+                } else {
+                    const elemento = document.getElementById(calz.id);
+                    if (elemento) {
+                        elemento.classList.add("filtro");
+                    }
+                }
+            }
+        }
+    });
+//filtro de nombre
+    const buscadorNombre = document.querySelector("#buscar");
+    buscadorNombre.addEventListener("keyup", e => {
+        if (e.target.matches("#buscar")) {
+            const nombreBuscado = e.target.value.toLowerCase();
+            for (const calz of calzados) {
+                if (calz.nombre.toLowerCase().includes(nombreBuscado)) {
+                    const elemento = document.getElementById(calz.id);
+                    if (elemento) {
+                        elemento.classList.remove("filtro");
+                    }
+                }else {
+                    const elemento = document.getElementById(calz.id);
+                    if (elemento) {
+                        elemento.classList.add("filtro");
+                    }
+                }
+            }
+        }
+    });
+};
+//llamamos a la promesa
 getCalzados();
-
 // Comprobar si hay datos en el Local Storage
 if (localStorage.getItem('carritoProductos')){
     carritoProductos = JSON.parse(localStorage.getItem('carritoProductos'));
@@ -82,12 +83,12 @@ if (localStorage.getItem('carritoProductos')){
     actualizarCarrito();
     actualizarPrecioTotal();
 }
-
+//guardar localStorage
 function guardarProductosEnLocalStorage() {
     localStorage.setItem('carritoProductos',JSON.stringify(carritoProductos));
     localStorage.setItem('cantidadProductos', cantidadProductos);
 } 
-
+//funcion actualizar carrito
 function actualizarCarrito() {
     carrito.innerHTML = '';
     carritoProductos.forEach((producto, index) => {
@@ -104,16 +105,15 @@ function actualizarCarrito() {
     });
     contadorCarrito.textContent = cantidadProductos;
 }
-
+//selecionar talle para agregar al carrito
 productosTalles.forEach((producto) => {
     const nombreProducto = producto.querySelector('.card-title').textContent;
     const precioProducto = producto.querySelector('.card-text').textContent;
     const botonesTalles = producto.querySelectorAll('.btn-outline-secondary');
     const imgProducto = producto.querySelector(".card-img-top").src;
-
     let talleSeleccionado;
     let cantidad =0;
-
+    //evento click remover seleccion de talle
     botonesTalles.forEach(botonTalle => {
         botonTalle.addEventListener('click', () => {
             botonesTalles.forEach(boton => {
@@ -123,7 +123,7 @@ productosTalles.forEach((producto) => {
             talleSeleccionado = botonTalle.textContent;
         });
     });
-
+//funcion  agregar al carrito si selecciono talle
     const botonTarjeta = producto.querySelector('.btn-primary');
     botonTarjeta.addEventListener('click', () => {
         if (!talleSeleccionado) {
@@ -156,7 +156,6 @@ productosTalles.forEach((producto) => {
         const li = document.createElement('li');
         li.classList.add('producto-carrito');
         li.innerHTML = `
-            
             <img src="${imgProducto}"class="imgCarrito">
             <span class="nombre">${nombreProducto}</span>
             <span class="talle">Talle ${talleSeleccionado}</span>
@@ -173,10 +172,9 @@ productosTalles.forEach((producto) => {
         actualizarPrecioTotal();
     });
 });
-
+//ACTUALIZAR PRECIO TOTAL
 function actualizarPrecioTotal() {
     let precioTotalCarrito = 0;
-
     const preciosProductos = document.querySelectorAll('.precio');
     preciosProductos.forEach(precioProducto => {
         const precioProductoNumerico = parseFloat(precioProducto.textContent.replace('Precio: $', ''));
@@ -186,6 +184,7 @@ function actualizarPrecioTotal() {
     });
     precioTotal.textContent  = `$${precioTotalCarrito.toFixed(2)}`;
 }
+//agregar productos al carrito
 function agregarProductoAlCarrito(nombreProducto, precioProducto, talleSeleccionado, imgProducto) {
         carritoProductos.push({
             nombre: nombreProducto,
@@ -193,19 +192,17 @@ function agregarProductoAlCarrito(nombreProducto, precioProducto, talleSeleccion
             talle: talleSeleccionado,
             img: imgProducto
         });
-    // Actualizar la cantidad de productos y el precio total en el carrito
+// Actualizar la cantidad de productos y el precio total en el carrito
     cantidadProductos++;
     actualizarCarrito();
     actualizarPrecioTotal();
     guardarProductosEnLocalStorage();
 }
-
-//probando efecto imagenes zoom
+//efecto imagenes zoom
 const imagenesProducto = document.querySelectorAll('.card-img-top');
 imagenesProducto.forEach((imagen) => {
     imagen.addEventListener('click', () => {
     const imageUrl = imagen.src;
-
         Swal.fire({
             title: imagen.alt,
             imageUrl: imageUrl,
@@ -215,11 +212,11 @@ imagenesProducto.forEach((imagen) => {
         });
     });
 });
-
+//CERRAR SECCION
 const finalizarSeccion =document.querySelector("#cerrarSeccion");
 finalizarSeccion.addEventListener("click", ()=>{
     Swal.fire({
-        title: 'Seccion Finalizada. ¡Gracias!',
+        title:'¡Seccion Finalizada con Exito!'+ '¡Gracias!',
         showClass: {
             popup: 'animate__animated animate__fadeInDown'
         },
